@@ -1,0 +1,17 @@
+dwm打入了systray补丁
+使用的主题：Orchis
+图标：Tela
+鼠标指针：dmz
+
+文件管理：thunar
+主题管理：lxappearance
+输入法：fcitx-rime
+dwm配合的软件见xinitrc
+.Xresources设置了dpi，.xinitrc引用了.Xresources
+状态栏：slstatus
+壁纸设置：feh
+窗口渲染：picom
+音量托盘：volumeicon
+网络管理托盘：nm-applet
+终端：Alacritty
+
