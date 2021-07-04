@@ -9,13 +9,13 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Noto Sans CJK SC:size=12" };
-static const char dmenufont[]       = "Noto Sans CJK SC:size=12";
-static const char col_gray1[]       = "#61747E";
-static const char col_gray2[]       = "#61747E";
-static const char col_gray3[]       = "#000000";
-static const char col_gray4[]       = "#FFFFFF";
-static const char col_cyan[]        = "#FB8C00";
+static const char *fonts[]          = { "monospace:size=10" };
+static const char dmenufont[]       = "monospace:size=10";
+static const char col_gray1[]       = "#D8DEE9";
+static const char col_gray2[]       = "#D8DEE9";
+static const char col_gray3[]       = "#434C5E";
+static const char col_gray4[]       = "#000000";
+static const char col_cyan[]        = "#88C0D0";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -43,7 +43,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "Tiled",      tile },    /* first entry is default */
-	{ "Floating",      NULL },    /* no layout function means floating behavior */
+	{ "Float",      NULL },    /* no layout function means floating behavior */
 	{ "Monocle",      monocle },
 };
 
@@ -63,29 +63,27 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *firefox[]  = { "firefox", NULL };
-static const char *thunar[] = { "thunar", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
         { MODKEY|ShiftMask,             XK_f,      spawn,          {.v = firefox } },
-	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   {.v = thunar } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },/*切换到下一个窗口*/
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },/*切换到上一个窗口*/
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },/*从左到右排窗口*/
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },/*从上到下排窗口*/
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },/*左移分割线*/
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },/*右移分割线*/
-	{ MODKEY,                       XK_Return, zoom,           {0} },/*将当前所在focus的窗口提升为主窗口(左边那个占比最大的窗口就是“主窗口”)*/
-	{ MODKEY,                       XK_Tab,    view,           {0} },/*循环切换工作区*/
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },/*关闭当前窗口*/
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },/*切换到平铺titled模式*/
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },/*切换到浮动floating模式*/
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },/*全屏当前窗口*/
-	{ MODKEY,                       XK_space,  setlayout,      {0} },/*在平铺和浮动之间切换*/
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },/*固定住当前窗口的位置和大小*/
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
