@@ -4,7 +4,7 @@
 ~~使用打入了systray补丁的dwm作为窗口管理器~~
 ~~已弃用dwm~~
 
-窗口管理器：i3
+窗口管理器：i3-gaps
 状态栏：bumblebee-status
 启动器：dmenu
 窗口渲染器：picom
