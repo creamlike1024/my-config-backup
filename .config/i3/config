@@ -271,11 +271,11 @@ bar {
 	}
 
 	# 以下为bumblebee status的设置
-	font pango:Noto Sans Mono 12,FontAwesome 14
+	font pango:DejaVu Sans 12,FontAwesome 14
         status_command bumblebee-status \
-		-m  title network_traffic cpu2 memory battery date time \
-		-p title.max=10 cpu2.layout=cpu2.cpuload memory.interval=1s memory.format='{used}' date.format="%b%d日 星期%a" time.format="%p%I:%M" \
-		-t onedark-powerline
+		-m indicator network_traffic pacman cpu2 memory battery date time \
+		-p indicator.include=capslock pacman.sum=true cpu2.layout=cpu2.cpuload memory.interval=1s memory.format='{used}' date.format="%b%d日 星期%a" time.format="%p%I:%M" \
+		-t dracula-powerline
 	# status_command 后接bumblebee-status的可执行文件路径
 	# -m 加载的模块，按顺序显示
 	# -p 模块的参数
