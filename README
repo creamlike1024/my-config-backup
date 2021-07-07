@@ -8,6 +8,8 @@
 状态栏：bumblebee-status
 启动器：dmenu
 窗口渲染器：picom
+锁屏：i3lock-fancy并在i3配置中配合xss-lock使用
+亮度控制：light
 无登陆管理器
 
 ## 主题
@@ -30,3 +32,13 @@ gtk主题：Orchis
 图片查看：ristretto
 
 
+## 配置文件
+- `~/.config/alacritty/alacritty.yml`是alacritty的主题配置
+- `~/.config/i3/config`是i3的配置文件
+- `/etc/X11/xorg.conf.d/10-monitor.conf`设定xorg自动息屏、锁屏、休眠时间
+- `/etc/X11/xorg.conf.d/40-libinput.conf`触控板设置
+- `/etc/systemd/logind.conf`电源键功能，合上盖子功能
+
+~~已废弃的配置~~
+`dwm/config.h`打入systray补丁的dwm配置
+`slstatus/config.h`slsatus状态栏配置

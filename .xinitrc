@@ -1,6 +1,9 @@
 # merge dpi setting from .Xresources
 xrdb -merge ~/.Xresources
 
+# qt程序自动检测dpi
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
 # Disable X pc-speaker
 # 在X中禁用主板喇叭
 xset -b
@@ -33,7 +36,8 @@ export XMODIFIERS="@im=fcitx"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Start picom
-picom -b
+# 已写入i3配置
+#picom -b
 
 # Set background
 # 随机显示目录下图片作为壁纸
