@@ -33,6 +33,7 @@ gtk主题：Orchis
 图片查看：ristretto
 录屏软件：simplescreenrecorder
 
+
 ## 配置文件
 - `~/.config/alacritty/alacritty.yml`是alacritty的主题配置
 - `~/.config/i3/config`是i3的配置文件
