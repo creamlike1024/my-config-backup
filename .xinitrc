@@ -4,12 +4,16 @@ xrdb -merge ~/.Xresources
 # qt程序自动检测dpi
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
+# 设置gtk3程序缩放并不影响字体
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+
 # Disable X pc-speaker
-# 在X中禁用主板喇叭
+# 在X环境中禁用主板喇叭
 xset -b
 
 # locale
-# 设置X的locale
+# 设置X环境的locale
 LANG=zh_CN.UTF-8
 
 # Network Manager applet

@@ -21,21 +21,29 @@ client.urgent           #2f343a #c70000 #ffffff #c70000   #c70000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
-# 禁用窗口边框，i3-gap推荐设置
+# 禁用窗口边框，i3-gaps推荐设置
 for_window [class=".*"] border pixel 0
 
 # 设置窗口间距
-gaps inner 8
-gaps outer 6
+gaps inner 6
+gaps outer 2
 # 窗口距离屏幕边缘的距离为inner+outer
 
 # Only enable gaps on a workspace when there is at least one container
 # 智能间隙，只在工作区至少有一个容器时启用outer间隙
-#smart_gaps on
+smart_gaps on
 
 # Only enable outer gaps when there is exactly one container
 # 智能间隙，只在工作区只有一个容器时启用outer间隙
-smart_gaps inverse_outer
+#smart_gaps inverse_outer
+
+# Activate smart borders (always)
+# 智能边框，当工作区有多于一个窗口时才启用窗口边框
+#smart_borders on
+
+# Activate smart borders (only when there are effectively no gaps)
+# 智能边框，当窗口间没有间隙时才启用窗口边框
+#smart_borders no_gaps
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -76,8 +84,8 @@ exec --no-startup-id picom -b
 # Use pactl to adjust volume in PulseAudio.
 # 绑定键位使用pactl调整PulseAudio的音量
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -90,8 +98,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id sudo light -U 10
 floating_modifier $mod
 
 # start a terminal
-# 启动终端
-bindsym $mod+Shift+Return exec alacritty
+# 启动终端，因为alacritty不支持启动提醒，所以加上--no-startup-id参数
+bindsym $mod+Shift+Return exec --no-startup-id alacritty
 
 # 一些程序的绑定键
 bindsym $mod+Shift+f exec firefox
@@ -269,18 +277,18 @@ bar {
         statusline #ffffff
         separator #666666
         #<colorclass>      <border> <background> <text>
-        focused_workspace  #ffa500  #ffa500     #000000
+        focused_workspace  #ffb90f  #ffa500     #ffffff
         active_workspace   #333333  #5f676a     #ffffff
         inactive_workspace #333333  #222222     #888888
-        urgent_workspace   #2f343a  #900000     #ffffff
-        binding_mode       #2f343a  #900000     #ffffff
+        urgent_workspace   #2f343a  #f21414     #ffffff
+        binding_mode       #2f343a  #2e68cc     #ffffff
 	}
 
 	# 以下为bumblebee status的设置
 	font pango:DejaVu Sans 12,FontAwesome 14
         status_command bumblebee-status \
-		-m indicator network_traffic pacman cpu2 memory battery date time \
-		-p indicator.include=capslock pacman.sum=true cpu2.layout=cpu2.cpuload memory.interval=1s memory.format='{used}' date.format="%b%d日 星期%a" time.format="%p%I:%M" \
+		-m indicator network_traffic cpu2 memory battery date time \
+		-p indicator.include=capslock cpu2.layout=cpu2.cpuload memory.interval=1s memory.format='{used}' date.format="%b%d日 星期%a" time.format="%p%I:%M" \
 		-t dracula-powerline
 	# status_command 后接bumblebee-status的可执行文件路径
 	# -m 加载的模块，按顺序显示
