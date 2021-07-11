@@ -9,7 +9,7 @@
 启动器：dmenu  
 窗口渲染器：picom  
 锁屏：i3lock-fancy并在i3配置中配合xss-lock使用  
-亮度控制：light（或者acpilight，一个xbackllight的补丁版本）  
+亮度控制：light（或者acpilight，一个xbacklight的补丁版本）  
 无登陆管理器  
 
 ## **主题**
@@ -48,6 +48,8 @@ markdown编辑器：typora
 - `~/.config/alacritty/alacritty.yml`是alacritty的主题配置
 - `~/.config/i3/config`是i3的配置文件
 - `~/.npmrc`npm配置
+- `~/.xinitrc`X启动时的设置
+- `~/.Xresources`内有dpi设置，需要在xinitrc中指定载入这个文件
 - `/etc/X11/xorg.conf.d/10-monitor.conf`设定xorg自动息屏、锁屏、休眠时间
 - `/etc/X11/xorg.conf.d/40-libinput.conf`触控板设置
 - `/etc/systemd/logind.conf`电源键功能，合上盖子功能
