@@ -78,8 +78,8 @@ exec --no-startup-id fcitx -d
 # 启动blueman-applet
 exec --no-startup-id blueman-applet
 
-# 启动picom
-exec --no-startup-id picom -b
+# 启动picom，参数中指定glx为后端是为了解决i3wm的双倍缓冲带来的画面撕裂现象
+exec --no-startup-id picom --backend glx -b
 
 # Use pactl to adjust volume in PulseAudio.
 # 绑定键位使用pactl调整PulseAudio的音量
