@@ -102,7 +102,7 @@ floating_modifier $mod
 bindsym $mod+Shift+Return exec --no-startup-id alacritty
 
 # 一些程序的绑定键
-bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+f exec firefox-bin
 bindsym $mod+Shift+t exec thunar
 
 # 截图键绑定shutter，PrtSc键截取整个屏幕，mod键+PrtSc键选择截图区域
