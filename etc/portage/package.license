@@ -1,0 +1,5 @@
+# Accepting both licenses for linux-firmware
+sys-kernel/linux-firmware linux-fw-redistributable no-source-code
+
+# Accepting any license that permits redistribution
+sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE
