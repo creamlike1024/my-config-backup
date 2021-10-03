@@ -1,4 +1,4 @@
-自用的ArchLinux配置备份
+自用的ArchLinux/Gentoo配置备份
 
 ## **桌面**
 ~~使用打入了systray补丁的dwm作为窗口管理器~~  
