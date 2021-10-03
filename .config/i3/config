@@ -236,7 +236,7 @@ bindsym $mod+Shift+r reload
 
 # exit i3 (logs you out of your X session)
 # 退出i3（登出 X 会话）
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m '你按了退出快捷键！你要走了吗？你的X会话将会结束' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 # 改变窗口大小（可以用鼠标）
