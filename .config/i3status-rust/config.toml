@@ -1,0 +1,37 @@
+theme = "gruvbox-light"
+icons = "awesome5"
+
+[[block]]
+block = "net"
+
+[[block]]
+block = "cpu"
+interval = 1
+format = "{utilization} {frequency}"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_used_percents} {mem_used}"
+
+[[block]]
+block = "weather"
+format = "{temp} {weather_verbose}"
+service = { name = "openweathermap", api_key = "0753eba5c4dff73f1568589c57224727", city_id = "2034937", units = "metric", lang = "zh_cn"}
+
+[[block]]
+block = "backlight"
+
+[[block]]
+block = "sound"
+step_width = 5
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage}"
+
+[[block]]
+block = "time"
+interval = 5
+format = "%a %m/%d %I:%M %p"
