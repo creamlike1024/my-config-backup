@@ -16,17 +16,6 @@ xset -b
 # 设置X环境的locale
 LANG=zh_CN.UTF-8
 
-# Network Manager applet
-# 已写入i3配置
-#nm-applet &
-
-# pulseaudio applet
-#pasystray &
-
-# Audio applet
-# 已写入i3配置
-#volumeicon &
-
 # Fcitx
 # 启动Fcitx的语句已写入i3配置
 export GTK_IM_MODULE=fcitx 
@@ -39,9 +28,8 @@ export XMODIFIERS="@im=fcitx"
 # 让qt5ct设置的qt程序外观生效
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-# Start picom
-# 已写入i3配置
-#picom -b
+# Start pulseaudio
+/usr/bin/start-pulseaudio-x11
 
 # Set background
 # 随机显示目录下图片作为壁纸
