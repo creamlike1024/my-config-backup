@@ -14,7 +14,7 @@ set $mod Mod4
 
 # i3除status bar以外的颜色定义
 # class                 border  backgr. text    indicator child_border
-client.focused          #333333 #5ac18e #ffffff #2e9ef4   #285577
+client.focused          #333333 #f28500 #ffffff #2e9ef4   #285577
 client.focused_inactive #333333 #575e60 #ffffff #484e50   #5f676a
 client.unfocused        #333333 #333333 #888888 #292d2e   #222222
 client.urgent           #2f343a #c70000 #ffffff #c70000   #c70000
@@ -102,8 +102,9 @@ floating_modifier $mod
 bindsym $mod+Shift+Return exec --no-startup-id alacritty
 
 # 一些程序的绑定键
-bindsym $mod+Shift+f exec firefox-bin
+bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+t exec thunar
+bindsym $mod+Shift+m exec --no-startup-id netease-cloud-music
 
 # 截图键绑定shutter，PrtSc键截取整个屏幕，mod键+PrtSc键选择截图区域
 bindsym Print exec shutter -f -e -o ~/Pictures/screenshot/%Y-%m-%d-%T.png
@@ -269,6 +270,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 # 启动状态栏
 bar {
+	font pango:DejaVu Sans Mono,FontAwesome
 	# 在顶部显示状态栏
 	position top
         # bar的颜色设置
@@ -277,7 +279,7 @@ bar {
         statusline #ffffff
         separator #666666
         #<colorclass>      <border> <background> <text>
-        focused_workspace  #ffb90f  #ffa500     #ffffff
+        focused_workspace  #333333  #00a693     #ffffff
         active_workspace   #333333  #5f676a     #ffffff
         inactive_workspace #333333  #222222     #888888
         urgent_workspace   #2f343a  #f21414     #ffffff
@@ -285,13 +287,15 @@ bar {
 	}
 
 	# 以下为bumblebee status的设置
-	font pango:DejaVu Sans 12,FontAwesome 14
-        status_command bumblebee-status \
-		-m indicator network_traffic cpu2 memory battery date time \
-		-p indicator.include=capslock cpu2.layout=cpu2.cpuload memory.interval=1s memory.format='{used}' date.format="%b%d日 星期%a" time.format="%p%I:%M" \
-		-t dracula-powerline
+        #status_command bumblebee-status \
+	#	-m indicator network_traffic cpu2 memory battery date time \
+	#	-p indicator.include=capslock cpu2.layout=cpu2.cpuload memory.interval=1s memory.format='{used}' date.format="%b%d日 星期%a" time.format="%p%I:%M" \
+	#	-t dracula-powerline
 	# status_command 后接bumblebee-status的可执行文件路径
 	# -m 加载的模块，按顺序显示
 	# -p 模块的参数
 	# -t 使用的主题
+	
+	# i3status-rust
+	status_command i3status-rs ~/.config/i3status-rust/config.toml
 }
