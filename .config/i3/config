@@ -154,21 +154,21 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 # 水平分割窗口
-bindsym $mod+minus split h
+bindsym $mod+minus split v
 
 # split in vertical orientation
 # 垂直分割窗口
-bindsym $mod+backslash split v
+bindsym $mod+backslash split h
 
 # enter fullscreen mode for the focused container
 # 将当前聚焦的容器进入全屏模式
 bindsym $mod+plus fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-# 改变容器布局（stacking堆叠式，tabbed标签式，toggle split在两种容器分割方式之间切换）
+# 改变容器布局（stacking堆叠式，tabbed标签式，toggle自动切换）
 bindsym $mod+s layout stacking		
 bindsym $mod+t layout tabbed		
-bindsym $mod+g layout toggle split	 
+bindsym $mod+g layout toggle
 
 # toggle tiling / floating
 # 切换平铺和浮动式
