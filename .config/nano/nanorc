@@ -1,4 +1,4 @@
 include "/usr/share/nano/*.nanorc"  # 启用预定义的语法高亮规则
 set tabsize 4       # 设置制表符宽度
 set tabstospaces    # 展开制表符为空格
-set linenumbers     # 显示行号（可以在编辑时 ALT-# 切换）
+#set linenumbers     # 显示行号（可以在编辑时 ALT-# 切换）
