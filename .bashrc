@@ -82,7 +82,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-
 fi
 
 # colored GCC warnings and errors
@@ -113,5 +112,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
 # PS1
 export PS1="\[\e[34;1m\]\u\[\e[33m\]@\[\e[32;1m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[31m\]$\[\e[m\] "
+
